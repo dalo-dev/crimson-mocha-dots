@@ -9,7 +9,7 @@ local browser = "firefox"
 local music = "spotify"
 
 -- Rofi menu commands
-local launcher = "~/.config/rofi/launchers/type-1/launcher.sh"
+local launcher = "~/.config/rofi/launcher/launcher.sh"
 local clipboardHistory = "cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"
 
 -- Modifier keys

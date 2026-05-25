@@ -40,6 +40,7 @@ The Hyprland config is written entirely in **Lua**.
 |-----------|-------|--------------|
 | Terminal  | [Catppuccin Mocha](https://github.com/catppuccin/kitty) | `current-theme.conf` via kitty include |
 | Prompt    | [Catppuccin Mocha](https://github.com/catppuccin/starship) | palette defined in `starship.toml` |
+| Launcher  | Catppuccin Mocha Red | `colors/catppuccin.rasi` imported in `shared/colors.rasi` |
 | GTK       | [Catppuccin Mocha](https://github.com/catppuccin/gtk) | [nwg-look](https://github.com/nwg-piotr/nwg-look) |
 | Qt        | [Catppuccin Mocha](https://github.com/catppuccin/qt5ct) | [qt6ct](https://github.com/trialuser02/qt6ct) |
 | Icons     | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) + [catppuccin-papirus-folders](https://github.com/catppuccin/papirus-folders) | [nwg-look](https://github.com/nwg-piotr/nwg-look) |
@@ -75,6 +76,15 @@ The Hyprland config is written entirely in **Lua**.
 │   └── current-theme.conf  # Catppuccin Mocha color scheme
 ├── fish/
 │   └── config.fish         # Shell init — sources CachyOS config and Starship
+├── rofi/
+│   └── launcher/
+│       ├── launcher.sh         # Entry point — picks style and launches rofi drun
+│       ├── style-{1..15}.rasi  # 15 layout styles
+│       ├── colors/
+│       │   └── catppuccin.rasi # Catppuccin Mocha Red color palette
+│       └── shared/
+│           ├── colors.rasi     # Imports active color scheme
+│           └── fonts.rasi      # JetBrains Mono Nerd Font
 └── starship.toml           # Prompt layout with Catppuccin Mocha palette
 ```
 
