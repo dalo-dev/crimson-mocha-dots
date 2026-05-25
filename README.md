@@ -31,6 +31,7 @@ The Hyprland config is written entirely in **Lua**.
 ![WirePlumber](https://img.shields.io/badge/audio-WirePlumber-f38ba8?style=flat-square)
 ![brightnessctl](https://img.shields.io/badge/brightness-brightnessctl-f9e2af?style=flat-square)
 ![playerctl](https://img.shields.io/badge/media-playerctl-a6e3a1?style=flat-square)
+![Mako](https://img.shields.io/badge/notifications-Mako-f38ba8?style=flat-square)
 
 ---
 
@@ -41,6 +42,7 @@ The Hyprland config is written entirely in **Lua**.
 | Terminal  | [Catppuccin Mocha](https://github.com/catppuccin/kitty) | `current-theme.conf` via kitty include |
 | Prompt    | [Catppuccin Mocha](https://github.com/catppuccin/starship) | palette defined in `starship.toml` |
 | Launcher  | Catppuccin Mocha Red | `colors/catppuccin.rasi` imported in `shared/colors.rasi` |
+| Notifications | Catppuccin Mocha Red | hardcoded in `mako/config` |
 | GTK       | [Catppuccin Mocha](https://github.com/catppuccin/gtk) | [nwg-look](https://github.com/nwg-piotr/nwg-look) |
 | Qt        | [Catppuccin Mocha](https://github.com/catppuccin/qt5ct) | [qt6ct](https://github.com/trialuser02/qt6ct) |
 | Icons     | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) + [catppuccin-papirus-folders](https://github.com/catppuccin/papirus-folders) | [nwg-look](https://github.com/nwg-piotr/nwg-look) |
@@ -85,6 +87,8 @@ The Hyprland config is written entirely in **Lua**.
 │       └── shared/
 │           ├── colors.rasi     # Imports active color scheme
 │           └── fonts.rasi      # JetBrains Mono Nerd Font
+├── mako/
+│   └── config              # Notification daemon — colors, urgency rules, mpd category
 └── starship.toml           # Prompt layout with Catppuccin Mocha palette
 ```
 
@@ -99,6 +103,7 @@ The Hyprland config is written entirely in **Lua**.
 - [`fish`](https://fishshell.com) — shell
 - [`starship`](https://starship.rs) — cross-shell prompt
 - [`rofi-wayland`](https://github.com/lbonn/rofi) — application launcher and dmenu replacement
+- [`mako`](https://github.com/emersion/mako) — notification daemon
 - [`nemo`](https://github.com/linuxmint/nemo) — file manager
 - [`firefox`](https://www.mozilla.org/firefox/) — browser
 
