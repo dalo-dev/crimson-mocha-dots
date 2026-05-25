@@ -20,6 +20,8 @@ The Hyprland config is written entirely in **Lua**.
 ![Hyprland](https://img.shields.io/badge/compositor-Hyprland-58e1ff?style=flat-square)
 ![Waybar](https://img.shields.io/badge/bar-Waybar-313244?style=flat-square)
 ![Kitty](https://img.shields.io/badge/terminal-Kitty-f38ba8?style=flat-square)
+![Fish](https://img.shields.io/badge/shell-Fish-89b4fa?style=flat-square)
+![Starship](https://img.shields.io/badge/prompt-Starship-f5e0dc?style=flat-square)
 ![Rofi](https://img.shields.io/badge/launcher-Rofi-cba6f7?style=flat-square)
 ![Nemo](https://img.shields.io/badge/files-Nemo-89b4fa?style=flat-square)
 ![Firefox](https://img.shields.io/badge/browser-Firefox-f9e2af?style=flat-square&logo=firefox&logoColor=black)
@@ -36,6 +38,8 @@ The Hyprland config is written entirely in **Lua**.
 
 | Component | Theme | Applied with |
 |-----------|-------|--------------|
+| Terminal  | [Catppuccin Mocha](https://github.com/catppuccin/kitty) | `current-theme.conf` via kitty include |
+| Prompt    | [Catppuccin Mocha](https://github.com/catppuccin/starship) | palette defined in `starship.toml` |
 | GTK       | [Catppuccin Mocha](https://github.com/catppuccin/gtk) | [nwg-look](https://github.com/nwg-piotr/nwg-look) |
 | Qt        | [Catppuccin Mocha](https://github.com/catppuccin/qt5ct) | [qt6ct](https://github.com/trialuser02/qt6ct) |
 | Icons     | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) + [catppuccin-papirus-folders](https://github.com/catppuccin/papirus-folders) | [nwg-look](https://github.com/nwg-piotr/nwg-look) |
@@ -54,18 +58,24 @@ The Hyprland config is written entirely in **Lua**.
 
 ```
 .config/
-└── hypr/
-    ├── hyprland.lua        # Entry point — loads all modules
-    └── modules/
-        ├── autostart.lua   # Services started on Hyprland startup
-        ├── binds.lua       # Keybindings and submaps
-        ├── decorations.lua # Colors, rounding, animations
-        ├── env.lua         # Environment variables
-        ├── input.lua       # Keyboard, mouse, touchpad settings
-        ├── layout.lua      # Dwindle / Master / Scrolling layout config
-        ├── misc.lua        # Miscellaneous Hyprland settings
-        ├── monitors.lua    # Monitor configuration
-        └── windowrules.lua # Window and layer rules
+├── hypr/
+│   ├── hyprland.lua        # Entry point — loads all modules
+│   └── modules/
+│       ├── autostart.lua   # Services started on Hyprland startup
+│       ├── binds.lua       # Keybindings and submaps
+│       ├── decorations.lua # Colors, rounding, animations
+│       ├── env.lua         # Environment variables
+│       ├── input.lua       # Keyboard, mouse, touchpad settings
+│       ├── layout.lua      # Dwindle / Master / Scrolling layout config
+│       ├── misc.lua        # Miscellaneous Hyprland settings
+│       ├── monitors.lua    # Monitor configuration
+│       └── windowrules.lua # Window and layer rules
+├── kitty/
+│   ├── kitty.conf          # Font, opacity, padding, performance
+│   └── current-theme.conf  # Catppuccin Mocha color scheme
+├── fish/
+│   └── config.fish         # Shell init — sources CachyOS config and Starship
+└── starship.toml           # Prompt layout with Catppuccin Mocha palette
 ```
 
 ---
@@ -76,6 +86,8 @@ The Hyprland config is written entirely in **Lua**.
 - [`hyprland`](https://github.com/hyprwm/Hyprland) — Wayland compositor (Lua config support required)
 - [`waybar`](https://github.com/Alexays/Waybar) — status bar
 - [`kitty`](https://github.com/kovidgoyal/kitty) — terminal emulator
+- [`fish`](https://fishshell.com) — shell
+- [`starship`](https://starship.rs) — cross-shell prompt
 - [`rofi-wayland`](https://github.com/lbonn/rofi) — application launcher and dmenu replacement
 - [`nemo`](https://github.com/linuxmint/nemo) — file manager
 - [`firefox`](https://www.mozilla.org/firefox/) — browser
