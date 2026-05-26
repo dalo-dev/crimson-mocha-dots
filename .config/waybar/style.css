@@ -1,0 +1,258 @@
+@import "mocha.css";
+
+/* ===========================
+ *  Global
+ * =========================== */
+
+window#waybar,
+window#waybar * {
+    min-height: 0;
+    min-width: 0;
+    font-family: "JetBrainsMono Nerd Font Propo", "Noto Sans", monospace;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+window#waybar {
+    background-color: transparent;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+/* ===========================
+ *  Modules génériques
+ * =========================== */
+
+#clock,
+#pulseaudio,
+#tray,
+#bluetooth,
+#battery,
+#custom-spotify,
+#custom-launcher,
+#cpu,
+#network,
+#idle_inhibitor,
+#power-profiles-daemon,
+#memory,
+#disk,
+#temperature,
+#window,
+#mpris,
+#backlight {
+    padding: 2px 8px;
+    margin: 3px 0;
+    border-radius: 10px;
+    border: 2px solid @red;
+    background-color: @base;
+}
+
+/* ===========================
+ *  Workspaces
+ * =========================== */
+
+#workspaces {
+    background-color: @base;
+    border-radius: 10px;
+    border: 2px solid @red;
+    margin: 3px 0;
+    padding: 0;
+}
+
+#workspaces button {
+    padding: 2px 8px;
+    margin: 0;
+    border-radius: 0;
+    background-color: transparent;
+    color: @overlay0;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+#workspaces button:first-child {
+    border-radius: 6px 0 0 6px;
+}
+
+#workspaces button:last-child {
+    border-radius: 0 6px 6px 0;
+}
+
+#workspaces button:first-child:last-child {
+    border-radius: 6px;
+}
+
+#workspaces button:hover {
+    background-color: @surface0;
+    color: @text;
+}
+
+#workspaces button.active {
+    background-color: @red;
+    color: @base;
+    font-weight: 700;
+}
+
+#workspaces button.empty {
+    color: @surface2;
+}
+
+#workspaces button.urgent {
+    background-color: @peach;
+    color: @base;
+}
+
+/* ===========================
+ *  États & couleurs modules
+ * =========================== */
+
+#launcher {
+    background-color: @base;
+    border-radius: 10px;
+    border: 2px solid @red;
+    margin: 3px 0;
+    padding: 0;
+}
+
+#launcher > widget > * {
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    margin: 0;
+}
+
+#launcher #custom-launcher,
+#launcher #cpu,
+#launcher #temperature,
+#launcher #memory,
+#launcher #disk {
+    border: none;
+}
+
+#cpu {
+    color: @teal;
+}
+
+#disk {
+    color: @yellow;
+}
+
+#temperature {
+    color: @peach;
+}
+
+#temperature.warning {
+    color: @yellow;
+}
+
+#temperature.critical {
+    color: @red;
+}
+
+#cpu.warning,
+#memory.warning {
+    color: @yellow;
+}
+
+#cpu.critical,
+#memory.critical {
+    color: @red;
+}
+
+#memory {
+    color: @mauve;
+}
+
+#clock {
+    color: @text;
+}
+
+#window {
+    color: @text;
+}
+
+#mpris {
+    color: @green;
+}
+
+#mpris.paused {
+    color: @subtext0;
+}
+
+#backlight {
+    color: @yellow;
+}
+
+#pulseaudio {
+    color: @lavender;
+}
+
+#pulseaudio.muted {
+    color: @subtext0;
+}
+
+#tray {
+    color: @overlay2;
+}
+
+#bluetooth {
+    color: @sky;
+}
+
+#network.wifi {
+    color: @blue;
+}
+
+#network.ethernet {
+    color: @teal;
+}
+
+#network.disconnected {
+    color: @red;
+}
+
+#power-profiles-daemon.performance {
+    color: @red;
+}
+
+#power-profiles-daemon.balanced {
+    color: @yellow;
+}
+
+#power-profiles-daemon.power-saver {
+    color: @green;
+}
+
+#idle_inhibitor.activated {
+    color: @yellow;
+}
+
+#idle_inhibitor.deactivated {
+    color: @subtext0;
+}
+
+#battery {
+    color: @green;
+}
+
+#custom-launcher {
+    color: @red;
+}
+
+/* ===========================
+ *  Divers
+ * =========================== */
+
+window#waybar.empty #window {
+    background-color: transparent;
+    border-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+/* ===========================
+ *  Tooltips
+ * =========================== */
+
+tooltip {
+    background-color: @mantle;
+    border: 2px solid @red;
+}

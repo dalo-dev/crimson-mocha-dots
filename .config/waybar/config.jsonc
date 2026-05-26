@@ -1,0 +1,186 @@
+{
+  "layer": "bottom",
+  "position": "top",
+  "margin": "5 5 0 5",
+  "spacing": 10,
+  "exclusive": true,
+  "gtk-layer-shell": true,
+  "fixed-center": true,
+  "reload_style_on_change": true,
+  "modules-left": [
+    "group/launcher",
+    "hyprland/workspaces",
+    "hyprland/window",
+    "mpris",
+  ],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "tray",
+    "idle_inhibitor",
+    "bluetooth",
+    "network",
+    "power-profiles-daemon",
+    "backlight",
+    "pulseaudio",
+    "battery",
+  ],
+
+  "group/launcher": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 300,
+      "transition-left-to-right": true,
+      "click-to-reveal": true,
+    },
+    "modules": ["custom/launcher", "cpu", "temperature", "memory", "disk"],
+  },
+
+  "custom/launcher": {
+    "tooltip": false,
+    "format": "",
+  },
+
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{id}",
+    "all-outputs": true,
+    "disable-scroll": false,
+    "active-only": false,
+  },
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 30,
+    "separate-outputs": true,
+  },
+
+  "tray": {
+    "show-passive-items": true,
+    "spacing": 10,
+  },
+  "clock": {
+    "format": "{:%H:%M    %a %d %b}",
+    "format-alt": " {:%H:%M:%S}",
+    "interval": 1,
+    "tooltip": false,
+  },
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": false,
+    "interval": 1,
+    "states": {
+      "warning": 70,
+      "critical": 90,
+    },
+  },
+  "memory": {
+    "format": " {used:0.1f}Gi",
+    "interval": 5,
+    "tooltip": true,
+    "tooltip-format": "{used:0.1f}Gi / {total:0.1f}Gi used | Swap: {swapUsed:0.1f}Gi / {swapTotal:0.1f}Gi",
+    "states": {
+      "warning": 70,
+      "critical": 90,
+    },
+  },
+  "temperature": {
+    "format": " {temperatureC}°C",
+    "interval": 5,
+    "warning-threshold": 65,
+    "critical-threshold": 80,
+    "format-critical": " {temperatureC}°C",
+    "tooltip": false,
+  },
+  "disk": {
+    "format": " {percentage_used}%",
+    "interval": 30,
+    "tooltip": true,
+    "tooltip-format": "{used} / {total} ({percentage_used}%)",
+    "path": "/",
+  },
+  "pulseaudio": {
+    "format": "{icon}{volume}%",
+    "format-muted": "  muted",
+    "format-icons": {
+      "headphone": "",
+      "default": [" ", " ", " "],
+    },
+    "on-click": "kitty -e pulsemixer",
+  },
+
+
+  "network": {
+    "interval": 5,
+    "on-click": "kitty -e nmtui",
+    "format-wifi": "󰤨 {essid}",
+    "format-ethernet": " {ipaddr}",
+    "format-disconnected": "󰅙 disconnected",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) | {ipaddr}",
+    "tooltip-format-ethernet": "{ifname}: {ipaddr}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 30,
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Profile: {profile} | Driver: {driver}",
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": "",
+    },
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰒳",
+      "deactivated": "󰒲",
+    },
+    "tooltip-format-activated": "Idle inhibitor on",
+    "tooltip-format-deactivated": "Idle inhibitor off",
+  },
+  "bluetooth": {
+    "format": " {status}",
+    "format-connected": " {device-alias}",
+    "tooltip": true,
+    "on-click": "kitty -e bluetuith",
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-full": " {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+  },
+  "mpris": {
+    "format": "{player_icon} {status_icon} {dynamic}",
+    "format-paused": "{player_icon} {status_icon} <i>{dynamic}</i>",
+    "format-stopped": "",
+    "dynamic-order": ["title", "artist", "position", "length"],
+    "dynamic-separator": " · ",
+    "dynamic-len": 25,
+    "dynamic-importance-order": ["title", "artist", "position", "length"],
+    "interval": 1,
+    "player-icons": {
+      "default": "♫",
+      "spotify": "",
+      "firefox": "󰈹",
+      "chromium": "",
+      "mpv": "",
+    },
+    "status-icons": {
+      "playing": "",
+      "paused": "",
+      "stopped": "",
+    },
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "scroll-step": 5,
+  },
+}

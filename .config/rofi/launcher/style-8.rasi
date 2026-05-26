@@ -32,7 +32,7 @@ window {
     enabled:                     true;
     margin:                      0px;
     padding:                     0px;
-    border:                      3px solid;
+    border:                      2px solid;
     border-radius:               10px;
     border-color:                @selected;
     background-color:            @background;
@@ -145,7 +145,7 @@ element selected.normal {
 }
 element-icon {
     padding:                     30px;
-    border-radius:               20px;
+    border-radius:               10px;
     background-color:            @background-alt;
     text-color:                  inherit;
     size:                        64px;
@@ -170,7 +170,7 @@ element-text selected {
 error-message {
     padding:                     20px;
     border:                      2px solid;
-    border-radius:               20px;
+    border-radius:               10px;
     border-color:                @selected;
     background-color:            @background;
     text-color:                  @foreground;

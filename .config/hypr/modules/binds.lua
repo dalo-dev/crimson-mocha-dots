@@ -79,14 +79,6 @@ hl.define_submap("⏻", function()
     hl.bind("escape", hl.dsp.submap("reset"))
 end)
 
--- Submap: Wallpaper Control
-hl.bind(secondMod .. " + W", hl.dsp.submap(""))
-hl.define_submap("", function()
-    hl.bind("Right", hl.dsp.exec_cmd("wpaperctl next"))
-    hl.bind("Left", hl.dsp.exec_cmd("wpaperctl previous"))
-    hl.bind("escape", hl.dsp.submap("reset"))
-end)
-
 -- Hardware & Media Controls (Audio / Brightness)
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
     { locked = true, repeating = true })

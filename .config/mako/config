@@ -3,13 +3,13 @@ layer=overlay
 margin=16
 background-color=#1e1e2e
 text-color=#cdd6f4
-border-size=3
+border-size=2
 border-color=#f38ba8
 border-radius=10
 max-icon-size=32
 default-timeout=5000
 ignore-timeout=1
-font=JetBrainsMono Nerd Font 11
+font=JetBrainsMono Nerd Font Propo 11
 progress-color=over #313244
 
 [urgency=low]
