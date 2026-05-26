@@ -73,6 +73,10 @@ The Hyprland config is written entirely in **Lua**.
 │       ├── misc.lua        # Miscellaneous Hyprland settings
 │       ├── monitors.lua    # Monitor configuration
 │       └── windowrules.lua # Window and layer rules
+├── waybar/
+│   ├── config.jsonc        # Modules, positions, and module config
+│   ├── style.css           # Layout and component styles
+│   └── mocha.css           # Catppuccin Mocha Red color variables
 ├── kitty/
 │   ├── kitty.conf          # Font, opacity, padding, performance
 │   └── current-theme.conf  # Catppuccin Mocha color scheme
@@ -89,6 +93,7 @@ The Hyprland config is written entirely in **Lua**.
 │           └── fonts.rasi      # JetBrains Mono Nerd Font
 ├── mako/
 │   └── config              # Notification daemon — colors, urgency rules, mpd category
+├── wallpapers/             # Wallpaper collection
 └── starship.toml           # Prompt layout with Catppuccin Mocha palette
 ```
 
@@ -128,3 +133,16 @@ The Hyprland config is written entirely in **Lua**.
 ### Auth / Power
 - `hyprpolkitagent` — Polkit authentication agent for Hyprland
 - `hyprshutdown` — graceful session/poweroff/reboot helper
+
+---
+
+## TODO
+
+- [ ] **hyprlock** — themed lockscreen config (Catppuccin Mocha Red)
+- [ ] **hypridle** — idle daemon config (timeout → lock → sleep chain)
+- [ ] **Screenshots** — wire up `grimblast` or `grim`+`slurp` with keybinds
+- [ ] **Spicetify** — Spotify theming to match the palette
+- [ ] **Firefox** — `userChrome.css` for a themed browser UI
+- [ ] **Neovim** — editor config with Catppuccin Mocha
+- [ ] **Deploy script** — `install.sh` or `stow` setup for easy deployment
+- [ ] **Preview screenshots** — add to README
