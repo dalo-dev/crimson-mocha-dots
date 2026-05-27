@@ -20,7 +20,7 @@ window#waybar {
 }
 
 /* ===========================
- *  Modules génériques
+ *  Generic modules
  * =========================== */
 
 #clock,
@@ -32,6 +32,7 @@ window#waybar {
 #custom-launcher,
 #cpu,
 #network,
+#custom-network,
 #idle_inhibitor,
 #power-profiles-daemon,
 #memory,
@@ -101,7 +102,7 @@ window#waybar {
 }
 
 /* ===========================
- *  États & couleurs modules
+ *  Module states & colors
  * =========================== */
 
 #launcher {
@@ -197,15 +198,20 @@ window#waybar {
     color: @sky;
 }
 
-#network.wifi {
+#network.ethernet {
+    color: @mauve;
+}
+
+#custom-network.wifi {
     color: @blue;
 }
 
-#network.ethernet {
+#custom-network.ethernet {
     color: @teal;
 }
 
-#network.disconnected {
+
+#custom-network.disconnected {
     color: @red;
 }
 
@@ -238,7 +244,7 @@ window#waybar {
 }
 
 /* ===========================
- *  Divers
+ *  Miscellaneous
  * =========================== */
 
 window#waybar.empty #window {
