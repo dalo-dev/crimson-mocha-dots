@@ -4,16 +4,16 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
 -- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 
+-- Global Rules
 hl.window_rule({
-    -- Ignore maximize requests from all apps. You'll probably like this.
     name           = "suppress-maximize-events",
     match          = { class = ".*" },
 
     suppress_event = "maximize",
 })
 
+-- XWayland Fixes
 hl.window_rule({
-    -- Fix some dragging issues with XWayland
     name     = "fix-xwayland-drags",
     match    = {
         class      = "^$",
@@ -27,9 +27,20 @@ hl.window_rule({
     no_focus = true,
 })
 
+-- Floating Windows
+hl.window_rule({
+    name   = "waypaper-float",
+    match  = { class = "waypaper" },
+
+    float  = true,
+    size   = { 1100, 800 },
+    center = true,
+})
+
+-- Layer Rules
 hl.layer_rule({
-    name = "rofi-popup",
-    match = { namespace = "rofi" },
-    animation = "slide bottom",
+    name       = "rofi-popup",
+    match      = { namespace = "rofi" },
+    animation  = "slide bottom",
     dim_around = true
 })

@@ -63,9 +63,12 @@ The Hyprland config is written entirely in **Lua**.
 .config/
 ├── hypr/
 │   ├── hyprland.lua        # Entry point — loads all modules
+│   ├── hypridle.conf       # Idle daemon — dim, lock, dpms, suspend chain
+│   ├── hyprlock.conf       # Lockscreen — clock, avatar, input field
+│   ├── mocha.conf          # Catppuccin Mocha palette for hyprlock
 │   └── modules/
 │       ├── autostart.lua   # Services started on Hyprland startup
-│       ├── binds.lua       # Keybindings and submaps
+│       ├── binds.lua       # Keybindings
 │       ├── decorations.lua # Colors, rounding, animations
 │       ├── env.lua         # Environment variables
 │       ├── input.lua       # Keyboard, mouse, touchpad settings
@@ -81,11 +84,20 @@ The Hyprland config is written entirely in **Lua**.
 │   ├── kitty.conf          # Font, opacity, padding, performance
 │   └── current-theme.conf  # Catppuccin Mocha color scheme
 ├── fish/
-│   └── config.fish         # Shell init — sources CachyOS config and Starship
+│   ├── config.fish         # Shell init — sources CachyOS config and Starship
+│   └── fish_plugins        # Fisher plugin manifest (nvm.fish)
 ├── rofi/
-│   └── launcher/
-│       ├── launcher.sh         # Entry point — picks style and launches rofi drun
-│       ├── style-{1..15}.rasi  # 15 layout styles
+│   ├── launcher/
+│   │   ├── launcher.sh         # Entry point — picks style and launches rofi drun
+│   │   ├── style-{1..15}.rasi  # 15 layout styles
+│   │   ├── colors/
+│   │   │   └── catppuccin.rasi # Catppuccin Mocha Red color palette
+│   │   └── shared/
+│   │       ├── colors.rasi     # Imports active color scheme
+│   │       └── fonts.rasi      # JetBrains Mono Nerd Font
+│   └── powermenu/
+│       ├── powermenu.sh        # Power menu — lock, suspend, logout, reboot, shutdown
+│       ├── style-{1..10}.rasi  # 10 layout styles
 │       ├── colors/
 │       │   └── catppuccin.rasi # Catppuccin Mocha Red color palette
 │       └── shared/
@@ -116,9 +128,19 @@ The Hyprland config is written entirely in **Lua**.
 - [`wl-clipboard`](https://github.com/bugaevc/wl-clipboard) — `wl-copy` / `wl-paste`
 - [`cliphist`](https://github.com/sentriz/cliphist) — clipboard history daemon
 
+### Lock / Idle
+- [`hyprlock`](https://github.com/hyprwm/hyprlock) — lockscreen
+- [`hypridle`](https://github.com/hyprwm/hypridle) — idle daemon (dim → lock → dpms → suspend)
+
+### Screenshots
+- [`grim`](https://sr.ht/~emersion/grim) — screenshot capture
+- [`slurp`](https://github.com/emersion/slurp) — region selection
+- [`swappy`](https://github.com/jtheoof/swappy) — screenshot annotation/editing
+
 ### Wallpaper
 - [`awww`](https://github.com/danyspin97/wpaperd) — wallpaper daemon
 - [`wpaperctl`](https://github.com/danyspin97/wpaperd) — wallpaper control CLI
+- [`waypaper`](https://github.com/anufrievroman/waypaper) — wallpaper picker GUI
 
 ### Hardware / Media
 - [`wireplumber`](https://pipewire.pages.freedesktop.org/wireplumber/) — `wpctl` for audio
@@ -132,15 +154,14 @@ The Hyprland config is written entirely in **Lua**.
 
 ### Auth / Power
 - `hyprpolkitagent` — Polkit authentication agent for Hyprland
-- `hyprshutdown` — graceful session/poweroff/reboot helper
 
 ---
 
 ## TODO
 
-- [ ] **hyprlock** — themed lockscreen config (Catppuccin Mocha Red)
-- [ ] **hypridle** — idle daemon config (timeout → lock → sleep chain)
-- [ ] **Screenshots** — wire up `grimblast` or `grim`+`slurp` with keybinds
+- [x] **hyprlock** — themed lockscreen config (Catppuccin Mocha Red)
+- [x] **hypridle** — idle daemon config (timeout → lock → sleep chain)
+- [x] **Screenshots** — `grim`+`slurp` (full + annotate via `swappy`) with keybinds
 - [ ] **Spicetify** — Spotify theming to match the palette
 - [ ] **Firefox** — `userChrome.css` for a themed browser UI
 - [ ] **Neovim** — editor config with Catppuccin Mocha

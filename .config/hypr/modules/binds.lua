@@ -7,6 +7,7 @@ local terminal = "kitty"
 local fileManager = "nemo"
 local browser = "firefox"
 local music = "spotify"
+local wallpaper = "waypaper"
 
 -- Rofi menu commands
 local launcher = "~/.config/rofi/launcher/launcher.sh"
@@ -22,7 +23,7 @@ local secondMod = "SUPER + SHIFT"
 
 -- Core Window Management
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
-hl.bind(mainMod .. " + v", hl.dsp.layout("togglesplit")) -- dwindle split toggle
+hl.bind(mainMod .. " + v", hl.dsp.layout("togglesplit"))
 hl.bind(secondMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
 hl.bind(secondMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
 
@@ -31,14 +32,16 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Application Launchers
-hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal)) -- SUPER + Enter opens terminal
+hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(music))
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(wallpaper))
 
 -- Rofi Menus
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(launcher))
 hl.bind(secondMod .. " + C", hl.dsp.exec_cmd(clipboardHistory))
+hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("~/.config/rofi/powermenu/powermenu.sh"))
 
 -- Window Focus (Arrow Keys)
 hl.bind(mainMod .. " + Left", hl.dsp.focus({ direction = "left" }))
@@ -66,19 +69,6 @@ hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(secondMod .. " + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
--- Submap: Power Menu
-hl.bind(secondMod .. " + P", hl.dsp.submap("⏻"))
-hl.define_submap("⏻", function()
-    hl.bind("s", function()
-        hl.dispatch(hl.dsp.exec_cmd("systemctl suspend"))
-        hl.dispatch(hl.dsp.submap("reset"))
-    end)
-    hl.bind("p", hl.dsp.exec_cmd("hyprshutdown --post-cmd 'systemctl poweroff'"))
-    hl.bind("r", hl.dsp.exec_cmd("hyprshutdown --post-cmd 'systemctl reboot'"))
-    hl.bind("SHIFT + l", hl.dsp.exec_cmd("hyprshutdown --post-cmd 'loginctl terminate-user $USER'"))
-    hl.bind("escape", hl.dsp.submap("reset"))
-end)
-
 -- Hardware & Media Controls (Audio / Brightness)
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
     { locked = true, repeating = true })
@@ -96,3 +86,7 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+
+-- Screenshots
+hl.bind("Print", hl.dsp.exec_cmd('f="$HOME/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"; grim -g "$(slurp -d)" "$f" && wl-copy < "$f" && notify-send "Screenshot" "Saved and copied to clipboard"'))
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd('m=$(mktemp); grim -g "$(slurp -d)" - | swappy -f -; find "$HOME/Pictures/Screenshots" -newer "$m" -name "*.png" | grep -q . && notify-send "Screenshot" "Saved to ~/Pictures/Screenshots"; rm -f "$m"'))
