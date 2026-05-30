@@ -92,11 +92,11 @@ The Hyprland config is written entirely in **Lua**.
 │   │   ├── colors.rasi         # Imports active color scheme
 │   │   └── fonts.rasi          # JetBrains Mono Nerd Font
 │   ├── launcher/
-│   │   ├── launcher.sh         # Entry point — picks style and launches rofi drun
-│   │   └── style-{1..15}.rasi  # 15 layout styles
+│   │   ├── launcher.sh         # Entry point — launches rofi drun
+│   │   └── style-8.rasi        # Active layout style
 │   ├── powermenu/
 │   │   ├── powermenu.sh        # Power menu — lock, suspend, logout, reboot, shutdown
-│   │   └── style-{1..10}.rasi  # 10 layout styles
+│   │   └── style-2.rasi        # Active layout style
 │   └── clipboard/
 │       ├── clipboard.sh        # Clipboard history menu — cliphist via rofi dmenu
 │       └── clipboard.rasi      # Layout and styling
