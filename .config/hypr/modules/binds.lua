@@ -11,7 +11,8 @@ local wallpaper = "waypaper"
 
 -- Rofi menu commands
 local launcher = "~/.config/rofi/launcher/launcher.sh"
-local clipboardHistory = "cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"
+local clipboardHistory = "~/.config/rofi/clipboard/clipboard.sh"
+local powermenu = "~/.config/rofi/powermenu/powermenu.sh"
 
 -- Modifier keys
 local mainMod = "SUPER"
@@ -41,7 +42,7 @@ hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(wallpaper))
 -- Rofi Menus
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(launcher))
 hl.bind(secondMod .. " + C", hl.dsp.exec_cmd(clipboardHistory))
-hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("~/.config/rofi/powermenu/powermenu.sh"))
+hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd(powermenu))
 
 -- Window Focus (Arrow Keys)
 hl.bind(mainMod .. " + Left", hl.dsp.focus({ direction = "left" }))

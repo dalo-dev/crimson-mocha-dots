@@ -52,6 +52,9 @@
     "format": "{title}",
     "max-length": 30,
     "separate-outputs": true,
+    "rewrite": {
+      "^$": "",
+    },
   },
 
   "tray": {
@@ -62,7 +65,20 @@
     "format": "{:%H:%M    %a %d %b}",
     "format-alt": " {:%H:%M:%S}",
     "interval": 1,
-    "tooltip": false,
+    "locale": "en_US.UTF-8",
+    "tooltip": true,
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#f38ba8'><b>{}</b></span>",
+        "days": "<span color='#cdd6f4'>{}</span>",
+        "weekdays": "<span color='#fab387'><b>{}</b></span>",
+        "today": "<span color='#a6e3a1'><b><u>{}</u></b></span>",
+      },
+    },
   },
   "cpu": {
     "format": " {usage}%",
@@ -143,9 +159,17 @@
     "tooltip-format-deactivated": "Idle inhibitor off",
   },
   "bluetooth": {
-    "format": " {status}",
-    "format-connected": " {device-alias}",
+    "format": "󰂯",
+    "format-connected": "󰂱",
+    "format-on": "󰂯",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-no-controller": "󰂰",
     "tooltip": true,
+    "tooltip-format": "{controller_alias}\t{controller_address}\n{status}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n{num_connections} connected\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
     "on-click": "kitty -e bluetuith",
   },
   "battery": {
@@ -182,5 +206,6 @@
     "format": "{icon} {percent}%",
     "format-icons": ["󰃞", "󰃟", "󰃠"],
     "scroll-step": 5,
+    "tooltip": false,
   },
 }

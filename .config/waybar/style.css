@@ -247,13 +247,6 @@ window#waybar {
  *  Miscellaneous
  * =========================== */
 
-window#waybar.empty #window {
-    background-color: transparent;
-    border-color: transparent;
-    padding: 0;
-    margin: 0;
-}
-
 /* ===========================
  *  Tooltips
  * =========================== */

@@ -84,25 +84,22 @@ The Hyprland config is written entirely in **Lua**.
 │   ├── kitty.conf          # Font, opacity, padding, performance
 │   └── current-theme.conf  # Catppuccin Mocha color scheme
 ├── fish/
-│   ├── config.fish         # Shell init — sources CachyOS config and Starship
-│   └── fish_plugins        # Fisher plugin manifest (nvm.fish)
+│   └── config.fish         # Shell init — sources CachyOS config and Starship
 ├── rofi/
+│   ├── colors/
+│   │   └── catppuccin.rasi     # Catppuccin Mocha Red color palette (shared)
+│   ├── shared/
+│   │   ├── colors.rasi         # Imports active color scheme
+│   │   └── fonts.rasi          # JetBrains Mono Nerd Font
 │   ├── launcher/
 │   │   ├── launcher.sh         # Entry point — picks style and launches rofi drun
-│   │   ├── style-{1..15}.rasi  # 15 layout styles
-│   │   ├── colors/
-│   │   │   └── catppuccin.rasi # Catppuccin Mocha Red color palette
-│   │   └── shared/
-│   │       ├── colors.rasi     # Imports active color scheme
-│   │       └── fonts.rasi      # JetBrains Mono Nerd Font
-│   └── powermenu/
-│       ├── powermenu.sh        # Power menu — lock, suspend, logout, reboot, shutdown
-│       ├── style-{1..10}.rasi  # 10 layout styles
-│       ├── colors/
-│       │   └── catppuccin.rasi # Catppuccin Mocha Red color palette
-│       └── shared/
-│           ├── colors.rasi     # Imports active color scheme
-│           └── fonts.rasi      # JetBrains Mono Nerd Font
+│   │   └── style-{1..15}.rasi  # 15 layout styles
+│   ├── powermenu/
+│   │   ├── powermenu.sh        # Power menu — lock, suspend, logout, reboot, shutdown
+│   │   └── style-{1..10}.rasi  # 10 layout styles
+│   └── clipboard/
+│       ├── clipboard.sh        # Clipboard history menu — cliphist via rofi dmenu
+│       └── clipboard.rasi      # Layout and styling
 ├── mako/
 │   └── config              # Notification daemon — colors, urgency rules, mpd category
 ├── wallpapers/             # Wallpaper collection

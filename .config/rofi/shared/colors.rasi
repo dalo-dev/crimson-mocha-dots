@@ -1,0 +1,10 @@
+/**
+ *
+ * Shared color scheme for all rofi menus (launcher, powermenu, clipboard).
+ * Swap the import below to change the palette everywhere at once.
+ *
+ * Available schemes live in ~/.config/rofi/colors/
+ *
+ **/
+
+@import "~/.config/rofi/colors/catppuccin.rasi"

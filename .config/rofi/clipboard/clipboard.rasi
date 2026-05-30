@@ -1,19 +1,9 @@
 /**
  *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
+ * Rofi Theme File : Clipboard (cliphist)
+ * Matches the adi1090x launcher style (Catppuccin + JetBrainsMono)
  *
- * Rofi Theme File
- * Rofi Version: 1.7.3
  **/
-
-/*****----- Configuration -----*****/
-configuration {
-	modi:                       "drun";
-    show-icons:                 true;
-    display-drun:               " Applications";
-	drun-display-format:        "{name}";
-}
 
 /*****----- Global Properties -----*****/
 @import                          "../shared/colors.rasi"
@@ -25,7 +15,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       1000px;
+    width:                       700px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -43,10 +33,9 @@ window {
 mainbox {
     enabled:                     true;
     spacing:                     20px;
-    margin:                      40px;
+    margin:                      30px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               0px 0px 0px 0px;
     border-color:                @selected;
     background-color:            transparent;
     children:                    [ "inputbar", "listview" ];
@@ -87,28 +76,27 @@ entry {
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Search...";
+    placeholder:                 "Clipboard...";
     placeholder-color:           inherit;
 }
 
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     6;
-    lines:                       3;
+    columns:                     1;
+    lines:                       8;
     cycle:                       true;
     dynamic:                     true;
-    scrollbar:                   false;
+    scrollbar:                   true;
     layout:                      vertical;
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
 
-    spacing:                     20px;
+    spacing:                     8px;
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               0px;
     border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;
@@ -117,68 +105,43 @@ listview {
 scrollbar {
     handle-width:                5px ;
     handle-color:                @selected;
-    border-radius:               0px;
+    border-radius:               100%;
     background-color:            @background-alt;
 }
 
 /*****----- Elements -----*****/
 element {
     enabled:                     true;
-    spacing:                     20px;
+    spacing:                     12px;
     margin:                      0px;
-    padding:                     0px;
+    padding:                     12px 16px;
     border:                      0px solid;
-    border-radius:               0px;
+    border-radius:               8px;
     border-color:                @selected;
-    background-color:            transparent;
+    background-color:            @background-alt;
     text-color:                  @foreground;
-    orientation:                 vertical;
+    orientation:                 horizontal;
     cursor:                      pointer;
 }
 element normal.normal {
-    background-color:            transparent;
+    background-color:            @background-alt;
     text-color:                  @foreground;
 }
 element selected.normal {
-    background-color:            transparent;
-    text-color:                  @foreground;
+    background-color:            @selected;
+    text-color:                  @background;
 }
 element-icon {
-    padding:                     30px;
-    border-radius:               10px;
-    background-color:            @background-alt;
+    background-color:            transparent;
     text-color:                  inherit;
-    size:                        64px;
+    size:                        28px;
     cursor:                      inherit;
 }
 element-text {
-    padding:                     10px;
     background-color:            transparent;
     text-color:                  inherit;
     highlight:                   inherit;
     cursor:                      inherit;
     vertical-align:              0.5;
-    horizontal-align:            0.5;
-}
-element-text selected {
-    border-radius:               100%;
-    background-color:            @selected;
-    text-color:                  @background;
-}
-
-/*****----- Message -----*****/
-error-message {
-    padding:                     20px;
-    border:                      2px solid;
-    border-radius:               10px;
-    border-color:                @selected;
-    background-color:            @background;
-    text-color:                  @foreground;
-}
-textbox {
-    background-color:            @background;
-    text-color:                  @foreground;
-    vertical-align:              0.5;
     horizontal-align:            0.0;
-    highlight:                   none;
 }
