@@ -6,9 +6,13 @@ themed end to end with the [Catppuccin Mocha Red](https://github.com/catppuccin/
 Every component — bar, launcher, terminal, prompt, lockscreen and notifications — shares the same colors
 for a cohesive look, and the Hyprland config is written entirely in **Lua** for a modular, readable setup.
 
-![CachyOS](https://img.shields.io/badge/CachyOS-Arch_based-0f94d2?style=flat-square&logo=archlinux&logoColor=white)
-![Hyprland](https://img.shields.io/badge/Hyprland-Wayland-58e1ff?style=flat-square)
-![Catppuccin](https://img.shields.io/badge/Catppuccin-Mocha_Red-f38ba8?style=flat-square)
+<p>
+  <a href="https://cachyos.org"><img src="https://cdn.simpleicons.org/cachyos" height="44" alt="CachyOS" /></a>
+  &nbsp;&nbsp;
+  <a href="https://hyprland.org"><img src="https://cdn.simpleicons.org/hyprland" height="44" alt="Hyprland" /></a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/catppuccin/catppuccin"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png" height="44" alt="Catppuccin" /></a>
+</p>
 
 ---
 
@@ -145,6 +149,10 @@ sudo pacman -S hyprpolkitagent xdg-desktop-portal-hyprland xdg-desktop-portal-gt
 - [`xdg-desktop-portal-gtk`](https://github.com/flatpak/xdg-desktop-portal-gtk) — GTK fallback portal (file dialogs, settings)
 - `qt5-wayland` / `qt6-wayland` — native Wayland support for Qt apps
 - [`mako`](https://github.com/emersion/mako) — notification daemon (Hyprland ships none by default)
+
+The repo ships a themed mako config at `.config/mako/config` — Catppuccin Mocha
+Red colors, per-urgency border accents (low / normal / high) and a dedicated
+`mpd` category for media notifications.
 
 ### 3. Sound & fonts
 
