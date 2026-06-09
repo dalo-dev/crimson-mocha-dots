@@ -191,20 +191,29 @@ sudo pacman -S waybar
 Several modules shell out to other programs, so install these for them to work:
 
 ```bash
-sudo pacman -S networkmanager power-profiles-daemon bluez bluez-utils pulsemixer
-paru -S bluetuith
+sudo pacman -S networkmanager power-profiles-daemon bluez bluez-utils pavucontrol network-manager-applet blueman
 ```
 
-- `networkmanager` — `nmtui` (network module click) and `nmcli` (the network script). Enable it with `sudo systemctl enable --now NetworkManager`.
+- `networkmanager` — backs the network module; `nm-connection-editor` (from `network-manager-applet`) opens on click. Enable with `sudo systemctl enable --now NetworkManager`.
 - `power-profiles-daemon` — backs the power-profile module.
-- `bluez` / `bluez-utils` — Bluetooth stack (`sudo systemctl enable --now bluetooth`); `bluetuith` is the TUI opened when you click the Bluetooth module.
-- `pulsemixer` — audio TUI opened from the volume module.
+- `bluez` / `bluez-utils` — Bluetooth stack (`sudo systemctl enable --now bluetooth`); `blueman-manager` (from `blueman`) opens on click.
+- `pavucontrol` — audio mixer opened from the volume module.
 
-> The MPRIS module and media keys rely on `playerctl`, and the volume module on `wpctl` (WirePlumber) — both covered in step 11 / step 3.
+> The MPRIS module and media keys rely on `playerctl`, and the volume module on `wpctl` (WirePlumber) — both covered in step 10 / step 3.
 
 Config lives in `.config/waybar/` (`config.jsonc`, `style.css`, `mocha.css`, `scripts/network.sh`).
 
-### 5. Launcher & menus: Rofi
+### 5. Shell prompt: Starship
+
+Starship draws the prompt with the Catppuccin Mocha palette. Config lives in `.config/starship.toml`.
+
+```bash
+sudo pacman -S starship
+```
+
+Add the init line to your shell's config (e.g. for fish: `echo 'starship init fish | source' >> ~/.config/fish/config.fish`).
+
+### 6. Launcher & menus: Rofi
 
 Three menus sharing one Catppuccin Mocha Red theme:
 
@@ -219,7 +228,7 @@ paru -S rofi-wayland
 The menu scripts are Bash; the power menu also calls `playerctl`, `wpctl` and
 `hyprlock` (from later steps). Config lives in `.config/rofi/`.
 
-### 6. Clipboard: wl-clipboard + cliphist
+### 7. Clipboard: wl-clipboard + cliphist
 
 On Hyprland startup two `wl-paste --watch` daemons pipe copied text and images
 into `cliphist`, building the history the rofi clipboard menu browses.
@@ -233,7 +242,7 @@ sudo pacman -S wl-clipboard cliphist
 
 The watchers are launched from `.config/hypr/modules/autostart.lua`.
 
-### 7. Lockscreen & idle: hyprlock + hypridle
+### 8. Lockscreen & idle: hyprlock + hypridle
 
 The lockscreen shows a clock, avatar and password field in the Mocha palette.
 `hypridle` runs the timeout chain: dim → lock → screen off (dpms) → suspend, and
@@ -246,7 +255,7 @@ sudo pacman -S hyprlock hypridle
 - [`hyprlock`](https://github.com/hyprwm/hyprlock) — lockscreen (config: `.config/hypr/hyprlock.conf`, palette in `mocha.conf`)
 - [`hypridle`](https://github.com/hyprwm/hypridle) — idle daemon (config: `.config/hypr/hypridle.conf`)
 
-### 8. Screenshots: grim + slurp + swappy
+### 9. Screenshots: grim + slurp + swappy
 
 - `Print` — select a region, save it to `~/Pictures/Screenshots/`, copy it to the clipboard and toast a confirmation.
 - `Super + Print` — select a region and open it straight in swappy to annotate.
@@ -263,7 +272,7 @@ mkdir -p ~/Pictures/Screenshots
 The confirmation toast uses `notify-send` (from `libnotify`, pulled in with
 mako). Keybinds are defined in `.config/hypr/modules/binds.lua`.
 
-### 9. Wallpaper: awww + waypaper
+### 10. Wallpaper: awww + waypaper
 
 `awww-daemon` starts with Hyprland and renders the wallpaper; `waypaper`
 (`Super + W`) is the picker GUI used to switch between the images in
@@ -279,7 +288,7 @@ paru -S awww waypaper
 > The daemon binary is `awww-daemon` as set in `autostart.lua` — double-check the
 > AUR package name on your system if it isn't found.
 
-### 10. Media & hardware keys
+### 11. Media & hardware keys
 
 The `XF86` media keys are bound in `binds.lua`: volume and mic mute go through
 `wpctl` (WirePlumber, from step 3), brightness through `brightnessctl`, and
@@ -293,7 +302,7 @@ sudo pacman -S brightnessctl playerctl
 - [`brightnessctl`](https://github.com/Hummer12007/brightnessctl) — screen brightness keys
 - [`playerctl`](https://github.com/altdesktop/playerctl) — media key control + Waybar MPRIS
 
-### 11. File manager, browser & music
+### 12. File manager, browser & music
 
 These are the default apps wired to keybinds in `binds.lua`: `Super + F` opens
 Nemo, `Super + B` Firefox and `Super + M` Spotify (which also shows up in the
@@ -308,7 +317,7 @@ paru -S spotify
 - [`firefox`](https://www.mozilla.org/firefox/) — browser
 - [`spotify`](https://www.spotify.com) — music (AUR)
 
-### 12. Theming (GTK / Qt / icons / cursor)
+### 13. Theming (GTK / Qt / icons / cursor)
 
 This is what makes GTK and Qt apps, the icon set, folder accents and the cursor
 all match the Catppuccin Mocha Red look. Install the tools, then apply the
@@ -329,7 +338,7 @@ The GTK and Qt Catppuccin Mocha themes are installed from the
 [catppuccin/qt5ct](https://github.com/catppuccin/qt5ct) repos, then selected in
 nwg-look / qt6ct.
 
-### 13. Deploy the configs
+### 14. Deploy the configs
 
 This repo has no install script yet — copy the configs into place manually:
 
