@@ -72,7 +72,7 @@ All binds live in [`.config/hypr/modules/binds.lua`](.config/hypr/modules/binds.
 | Keybind | Action |
 |---------|--------|
 | `Super + Return` | Terminal (kitty) |
-| `Super + B` | Browser (firefox) |
+| `Super + B` | Browser (brave) |
 | `Super + F` | File manager (nemo) |
 | `Super + M` | Music (spotify) |
 | `Super + W` | Wallpaper picker (waypaper) |
@@ -305,17 +305,39 @@ sudo pacman -S brightnessctl playerctl
 ### 12. File manager, browser & music
 
 These are the default apps wired to keybinds in `binds.lua`: `Super + F` opens
-Nemo, `Super + B` Firefox and `Super + M` Spotify (which also shows up in the
+Nemo, `Super + B` Brave and `Super + M` Spotify (which also shows up in the
 Waybar / mako MPRIS displays with its own icon).
 
 ```bash
-sudo pacman -S nemo firefox
-paru -S spotify
+sudo pacman -S nemo
+paru -S brave-browser-bin spotify
 ```
 
 - [`nemo`](https://github.com/linuxmint/nemo) — file manager
-- [`firefox`](https://www.mozilla.org/firefox/) — browser
+- [`brave-browser-bin`](https://brave.com) — browser (AUR)
 - [`spotify`](https://www.spotify.com) — music (AUR)
+
+#### Default applications
+
+MIME-type associations live in `.config/mimeapps.list` and wire up system-wide
+defaults without needing a desktop environment. The full set:
+
+| Type | App |
+|------|-----|
+| HTTP / HTTPS | Brave |
+| Images (jpeg, png, gif, webp, svg…) | imv |
+| Video (mp4, mkv, webm, avi…) | mpv |
+| Audio (mp3, flac, ogg, opus…) | mpv |
+| PDF | Zathura |
+| Text / code / JSON / XML | VSCodium |
+| Directories | Nemo |
+
+Install the openers if needed:
+
+```bash
+sudo pacman -S imv mpv zathura zathura-pdf-mupdf
+paru -S vscodium-bin
+```
 
 ### 13. Theming (GTK / Qt / icons / cursor)
 

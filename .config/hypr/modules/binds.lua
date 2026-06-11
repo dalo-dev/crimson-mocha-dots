@@ -5,7 +5,7 @@
 -- Set programs that you use
 local terminal = "kitty"
 local fileManager = "nemo"
-local browser = "firefox"
+local browser = "brave"
 local music = "spotify"
 local wallpaper = "waypaper"
 
