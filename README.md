@@ -222,7 +222,7 @@ Three menus sharing one Catppuccin Mocha Red theme:
 - **Clipboard** (`Super + Shift + C`) — cliphist history picker.
 
 ```bash
-paru -S rofi-wayland
+sudo pacman -S rofi
 ```
 
 The menu scripts are Bash; the power menu also calls `playerctl`, `wpctl` and
@@ -316,6 +316,14 @@ paru -S brave-browser-bin spotify
 - [`nemo`](https://github.com/linuxmint/nemo) — file manager
 - [`brave-browser-bin`](https://brave.com) — browser (AUR)
 - [`spotify`](https://www.spotify.com) — music (AUR)
+
+#### Browser theming
+
+To match the rice, install these in Brave:
+
+- **[Catppuccin Stylus](https://github.com/catppuccin/userstyles)** — per-site userstyles via the Stylus extension (select the **Mocha + Red** accent)
+- **[Catppuccin theme](https://github.com/catppuccin/chrome)** — browser chrome theme (Mocha)
+- **[Catppuccin icons](https://github.com/catppuccin/web-file-explorer-icons)** — tab favicon replacements
 
 #### Default applications
 
