@@ -199,7 +199,7 @@ sudo pacman -S networkmanager power-profiles-daemon bluez bluez-utils pavucontro
 - `bluez` / `bluez-utils` — Bluetooth stack (`sudo systemctl enable --now bluetooth`); `blueman-manager` (from `blueman`) opens on click.
 - `pavucontrol` — audio mixer opened from the volume module.
 
-> The MPRIS module and media keys rely on `playerctl`, and the volume module on `wpctl` (WirePlumber) — both covered in step 10 / step 3.
+> The MPRIS module and media keys rely on `playerctl`, and the volume module on `wpctl` (WirePlumber) — both covered in step 11 / step 3.
 
 Config lives in `.config/waybar/` (`config.jsonc`, `style.css`, `mocha.css`, `scripts/network.sh`).
 
