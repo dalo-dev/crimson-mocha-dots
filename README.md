@@ -118,13 +118,14 @@ to greet you at boot. The display manager is up to you — here we use **ly**, a
 lightweight TUI greeter:
 
 ```bash
-sudo pacman -S hyprland kitty ly
+sudo pacman -S hyprland kitty ly fastfetch
 sudo systemctl enable ly@tty2.service
 ```
 
 - [`hyprland`](https://github.com/hyprwm/Hyprland) — the Wayland compositor everything else runs on. Its config is written in **Lua** and split into modules under `.config/hypr/` (`hyprland.lua` is the entry point that loads them).
 - [`kitty`](https://github.com/kovidgoyal/kitty) — GPU-accelerated terminal, themed with Catppuccin Mocha. Config lives in `.config/kitty/` (`kitty.conf` for font/opacity/padding, `current-theme.conf` for the color scheme).
 - [`ly`](https://github.com/fairyglade/ly) — lightweight TUI display manager / login greeter; `ly@tty2.service` starts it on tty2.
+- [`fastfetch`](https://github.com/fastfetch-cli/fastfetch) — system info display shown on terminal launch (the **Kitty + Fastfetch** preview above). Config lives in `.config/fastfetch/config.jsonc` — Catppuccin Mocha Red accents (red/white logo, red title and keys) and a tuned module list. Run `fastfetch` to show it, or add it to your shell config to run on every new shell (e.g. for fish: `echo 'fastfetch' >> ~/.config/fish/config.fish`).
 
 > [!IMPORTANT]
 > This config is written in **Lua** (`hyprland.lua`), which Hyprland only loads on
