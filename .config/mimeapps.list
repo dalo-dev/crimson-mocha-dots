@@ -1,3 +1,4 @@
+
 [Default Applications]
 x-scheme-handler/claude-cli=claude-code-url-handler.desktop
 
@@ -32,10 +33,10 @@ audio/mp4=mpv.desktop
 
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
 
-text/plain=codium.desktop
-text/x-script.python=codium.desktop
-application/x-shellscript=codium.desktop
-application/json=codium.desktop
-application/xml=codium.desktop
+text/plain=code.desktop
+text/x-script.python=code.desktop
+application/x-shellscript=code.desktop
+application/json=code.desktop
+application/xml=code.desktop
 
 inode/directory=nemo.desktop

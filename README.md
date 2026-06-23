@@ -338,14 +338,14 @@ defaults without needing a desktop environment. The full set:
 | Video (mp4, mkv, webm, avi…) | mpv |
 | Audio (mp3, flac, ogg, opus…) | mpv |
 | PDF | Zathura |
-| Text / code / JSON / XML | VSCodium |
+| Text / code / JSON / XML | VS Code |
 | Directories | Nemo |
 
 Install the openers if needed:
 
 ```bash
 sudo pacman -S imv mpv zathura zathura-pdf-mupdf
-paru -S vscodium-bin
+paru -S visual-studio-code-bin
 ```
 
 ### 13. Theming (GTK / Qt / icons / cursor)

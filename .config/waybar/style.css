@@ -239,6 +239,31 @@ window#waybar {
     color: @green;
 }
 
+#battery.charging,
+#battery.plugged {
+    color: @teal;
+}
+
+#battery.full {
+    color: @green;
+}
+
+#battery.warning:not(.charging) {
+    color: @yellow;
+}
+
+#battery.critical:not(.charging) {
+    color: @red;
+    animation: battery-blink 1s steps(1) infinite;
+}
+
+@keyframes battery-blink {
+    50% {
+        color: @base;
+        background-color: @red;
+    }
+}
+
 #custom-launcher {
     color: @red;
 }

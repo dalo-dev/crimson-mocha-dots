@@ -124,7 +124,6 @@
     "on-click": "pavucontrol",
   },
 
-
   "network#vpn": {
     "interface": "tun0",
     "format-ethernet": "󰦝",
@@ -173,16 +172,22 @@
     "on-click": "blueman-manager",
   },
   "battery": {
+    "interval": 30,
     "states": {
       "warning": 30,
       "critical": 15,
     },
     "format": "{icon} {capacity}%",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{time} {icon}",
-    "format-full": " {capacity}%",
-    "format-icons": ["", "", "", "", ""],
+    "format-charging": "{icon} {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
+    "format-full": "󰁹 {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-icons": {
+      "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+      "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+    },
+    "tooltip": true,
+    "tooltip-format": "{capacity}% • {timeTo}\nHealth: {health}%",
   },
   "mpris": {
     "format": "{player_icon} {dynamic}",
@@ -192,10 +197,10 @@
     "dynamic-order": ["title", "artist"],
     "dynamic-importance-order": ["title", "artist"],
     "player-icons": {
+      "brave": "󰖟",
       "default": "",
       "mpv": "",
       "spotify": "",
-      "chromium": "󰖟"
     },
     "status-icons": {
       "paused": "",
