@@ -36,7 +36,7 @@ hl.config({
         },
 
         blur             = {
-            enabled = false,
+            enabled = true,
         },
     },
 
