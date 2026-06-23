@@ -350,6 +350,10 @@ paru -S visual-studio-code-bin
 
 ### 13. Theming (GTK / Qt / icons / cursor)
 
+> [!WARNING]
+> The Catppuccin GTK theme is **deprecated** upstream. No issues so far, but if
+> any come up I'll look into alternatives in the future.
+
 This is what makes GTK and Qt apps, the icon set, folder accents and the cursor
 all match the Catppuccin Mocha Red look. Install the tools, then apply the
 themes:
