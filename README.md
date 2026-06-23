@@ -24,8 +24,8 @@ for a cohesive look, and the Hyprland config is written entirely in **Lua** for 
 |:---:|:---:|
 | ![Rofi launcher](screenshots/rofi-launcher.png) | ![Power menu](screenshots/rofi-powermenu.png) |
 | **Launcher** (`Super + Space`) | **Power menu** (`Super + Escape`) |
-| ![Terminal](screenshots/terminal.png) | ![Tiling](screenshots/tiling.png) |
-| **Kitty + Fastfetch** | **Tiled workspace** |
+| ![Terminal](screenshots/terminal.png) | ![Clipboard](screenshots/clipboard.png) |
+| **Kitty + Fastfetch** | **Clipboard manager** |
 
 **Waybar**
 
